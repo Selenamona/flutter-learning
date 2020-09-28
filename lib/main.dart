@@ -5,7 +5,16 @@ import './views/third.dart';
 import './views/detail.dart';
 import './views/clue.dart';
 
-void main() => runApp(new MyApp());
+import 'package:fluro/fluro.dart';
+import './routers/routers.dart';
+import './routers//application.dart';
+
+void main() {
+  final router = Router(); // 获取路由对象
+  Routes.configureRoutes(router); // 调用路由配置方法
+  Application.router = router; // 将路由对象静态化
+  runApp(new MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -13,11 +22,14 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       title: 'Welcome to Flutter',
       home: new MyHomePage(),
-      routes: <String, WidgetBuilder>{
-        '/detail': (BuildContext context) => new Detail("1"),
-        // '/b': (BuildContext context) => MyPage(title: 'page B'),
-        // '/c': (BuildContext context) => MyPage(title: 'page C'),
-      },
+      // 路由配置方式一
+      // routes: <String, WidgetBuilder>{
+      //   '/detail': (BuildContext context) => new Detail("1"),
+      //   // '/b': (BuildContext context) => MyPage(title: 'page B'),
+      //   // '/c': (BuildContext context) => MyPage(title: 'page C'),
+      // },
+      // 路由配置方式二
+      onGenerateRoute: Application.router.generator, // 将路由配置到 MaterialApp 中
     );
   }
 }

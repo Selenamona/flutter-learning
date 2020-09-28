@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:new_flutter/views/detail.dart';
 import '../views/detail.dart';
+import '../routers//application.dart';
 
 class List extends StatefulWidget {
   @override
@@ -68,10 +69,23 @@ class ListState extends State<List> {
   }
 
   void _onTap(String id) {
+    // 路由跳转方式一(flutter 自带)：
     Navigator.of(context).push(new PageRouteBuilder(
         opaque: false,
         pageBuilder: (BuildContext context, _, __) {
           return new Detail(id);
         }));
+    // 路由跳转方式二（fluro）：
+    // Application.router.navigateTo(context, '/details');
+    // // *** 传参跳转
+    // Application.router.navigateTo(context, '/details/001');
+    // // 替换历史记录_replace: true
+    // Application.router.navigateTo(context, '/details/001', replace: true);
+    // // 清空历史记录_clearStack: true
+    // Application.router.navigateTo(context, '/details/001', clearStack: true);
+    // *** 路由跳转都是进栈操作，原有页面没有销毁。如果想跳转时同时销毁页面，可用原生的路由跳转方法：
+    // Navigator.of(context).pushAndRemoveUntil(
+    //     MaterialPageRoute(builder: (context) => Detail("666")),
+    //     (route) => route == null);
   }
 }

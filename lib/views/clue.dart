@@ -77,25 +77,25 @@ class _ClueState extends State<Clue> {
           /** decoration 和 color 不能同时使用 */
           // color: Colors.white,
           decoration: new BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(10),
               /** 背景径向渐变 */
               gradient: RadialGradient(
-                  colors: [Colors.red, Colors.orange],
+                  colors: [Colors.white, Colors.white],
                   center: Alignment.topLeft,
                   radius: .98),
               /** 设置阴影 */
               boxShadow: [
                 BoxShadow(
-                    color: Colors.pinkAccent,
-                    offset: Offset(0, 4), // 阴影xy轴偏移量
+                    color: Color(0xFF8FECFF),
+                    offset: Offset(0, -6), // 阴影xy轴偏移量
                     blurRadius: 0, // 阴影模糊程度
-                    spreadRadius: 5 // 阴影扩散程度
+                    spreadRadius: -2 // 阴影扩散程度
                     ),
                 BoxShadow(
-                    color: Colors.greenAccent,
-                    offset: Offset(0, -2), // 阴影xy轴偏移量
+                    color: Color(0xA9FF00B3),
+                    offset: Offset(0, 8), // 阴影xy轴偏移量
                     blurRadius: 0, // 阴影模糊程度
-                    spreadRadius: 5 // 阴影扩散程度
+                    spreadRadius: -2 // 阴影扩散程度
                     )
               ]),
         ));
