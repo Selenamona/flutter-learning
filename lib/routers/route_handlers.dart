@@ -4,6 +4,7 @@ import 'package:fluro/fluro.dart';
 // 引入路由要跳转的页面文件
 import 'package:new_flutter/views/detail.dart';
 import 'package:new_flutter/views/clue.dart';
+import 'package:new_flutter/views/requestTest.dart';
 
 Handler detailHandler = Handler(
   handlerFunc: (BuildContext context, Map<String, List<String>> params) {
@@ -15,5 +16,11 @@ Handler detailHandler = Handler(
 Handler clueHandler = Handler(
   handlerFunc: (BuildContext context, Map<String, List<String>> params) {
     return Clue();
+  },
+);
+
+Handler requestTestHandler = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return RequestTest();
   },
 );

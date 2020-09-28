@@ -17,6 +17,12 @@ class Detail extends StatelessWidget {
           children: [
             new Text("这是详情页，id为" + id),
             RaisedButton(
+              child: Text("http请求"),
+              onPressed: () {
+                Application.router.navigateTo(context, '/requestTest');
+              },
+            ),
+            RaisedButton(
               child: Text("返回"),
               onPressed: () {
                 // 路由跳转方式一：flutter 自带的 Navigator widget 提供的 pop 方法
