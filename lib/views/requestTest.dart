@@ -16,9 +16,18 @@ class _RequestTestState extends State<RequestTest> {
       children: [
         GestureDetector(
           onTap: _getProvince,
-          child: Text("获取省市"),
+          child: Text(
+            "获取省市",
+            style: TextStyle(
+                decoration: TextDecoration.lineThrough,
+                decorationColor: Colors.red,
+                decorationStyle: TextDecorationStyle.solid), // 添加删除线
+          ),
         ),
-        Text(texts)
+        Text(
+          texts,
+          style: TextStyle(decoration: TextDecoration.none), // 去除双下划线
+        )
       ],
     ));
   }
