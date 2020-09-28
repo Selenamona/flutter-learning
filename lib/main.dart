@@ -7,7 +7,7 @@ import './views/clue.dart';
 
 import 'package:fluro/fluro.dart';
 import './routers/routers.dart';
-import './routers//application.dart';
+import './routers//application.dart'; // 注意双斜杠
 
 void main() {
   final router = Router(); // 获取路由对象

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import '../routers/application.dart';
+import '../routers//application.dart';
 
 class Detail extends StatelessWidget {
   // 配置接收的参数
@@ -26,9 +26,9 @@ class Detail extends StatelessWidget {
               child: Text("返回"),
               onPressed: () {
                 // 路由跳转方式一：flutter 自带的 Navigator widget 提供的 pop 方法
-                Navigator.pop(context);
+                // Navigator.pop(context);
                 // 路由跳转方式二： fluro 中提供的 pop 方法
-                // Application.router.pop(context);-报错
+                Application.router.pop(context);
               },
             )
           ],

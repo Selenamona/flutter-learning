@@ -11,8 +11,6 @@ class DioUtil {
     try {
       Response response;
       dio.options.headers = httpHeaders;
-      dio.options.contentType =
-          ContentType.parse("application/json;charset=UTF-8") as String;
       if (formData == null) {
         response = await dio.post(serviceUrl + url);
       } else {
@@ -33,7 +31,7 @@ class DioUtil {
     dio.interceptors
         .add(InterceptorsWrapper(onRequest: (RequestOptions options) {
       // 请求发送前-预处理
-      print(options);
+      // print(options);
     }, onResponse: (Response response) {
       // 返回响应数据前-预处理
       return response; // continue

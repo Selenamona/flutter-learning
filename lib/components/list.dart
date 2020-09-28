@@ -70,15 +70,15 @@ class ListState extends State<List> {
 
   void _onTap(String id) {
     // 路由跳转方式一(flutter 自带)：
-    Navigator.of(context).push(new PageRouteBuilder(
-        opaque: false,
-        pageBuilder: (BuildContext context, _, __) {
-          return new Detail(id);
-        }));
+    // Navigator.of(context).push(new PageRouteBuilder(
+    //     opaque: false,
+    //     pageBuilder: (BuildContext context, _, __) {
+    //       return new Detail(id);
+    //     }));
     // 路由跳转方式二（fluro）：
     // Application.router.navigateTo(context, '/details');
     // // *** 传参跳转
-    // Application.router.navigateTo(context, '/details/001');
+    Application.router.navigateTo(context, '/details/001');
     // // 替换历史记录_replace: true
     // Application.router.navigateTo(context, '/details/001', replace: true);
     // // 清空历史记录_clearStack: true
