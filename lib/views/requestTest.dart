@@ -11,25 +11,27 @@ class _RequestTestState extends State<RequestTest> {
   String texts = "";
 
   Widget build(BuildContext context) {
-    return Container(
-        child: Column(
-      children: [
-        GestureDetector(
-          onTap: _getProvince,
-          child: Text(
-            "获取省市",
-            style: TextStyle(
-                decoration: TextDecoration.lineThrough,
-                decorationColor: Colors.red,
-                decorationStyle: TextDecorationStyle.solid), // 添加删除线
-          ),
-        ),
-        Text(
-          texts,
-          style: TextStyle(decoration: TextDecoration.none), // 去除双下划线
-        )
-      ],
-    ));
+    return new Scaffold(
+        appBar: new AppBar(title: new Text("省份简称")),
+        body: Container(
+            child: Column(
+          children: [
+            GestureDetector(
+              onTap: _getProvince,
+              child: Text(
+                "获取省市",
+                style: TextStyle(
+                    decoration: TextDecoration.lineThrough,
+                    decorationColor: Colors.red,
+                    decorationStyle: TextDecorationStyle.solid), // 添加删除线
+              ),
+            ),
+            Text(
+              texts,
+              style: TextStyle(decoration: TextDecoration.none), // 去除双下划线
+            )
+          ],
+        )));
   }
 
   // 网络请求获取省份简称
