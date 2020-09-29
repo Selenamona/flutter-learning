@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:new_flutter/views/detail.dart';
 import '../views/detail.dart';
 import '../routers//application.dart';
+import '../api/api.dart';
+import '../service/request_config.dart';
 
 class List extends StatefulWidget {
   @override
@@ -10,6 +12,16 @@ class List extends StatefulWidget {
 
 class ListState extends State<List> {
   @override
+  initState() {
+    super.initState();
+    init();
+  }
+
+  init() async {
+    var reponse = await DioUtil.get(Api.getGithubUser);
+    print(reponse);
+  }
+
   Widget build(BuildContext context) {
     return new ListView.builder(
       itemCount: 10,

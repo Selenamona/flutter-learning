@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import '../components/list.dart';
 
-class First extends StatefulWidget {
+class HomeList extends StatefulWidget {
   @override
-  FirstState createState() => new FirstState();
+  HomeListState createState() => new HomeListState();
 }
 
-class FirstState extends State<First> {
+class HomeListState extends State<HomeList> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       /** 顶部导航栏 */
       appBar: new AppBar(
-        title: new Text("界面1"), 
+        title: new Text("界面1"),
       ),
       /* 容器，对子组件位置大小进行约束 */
       body: new Container(
