@@ -1,9 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:new_flutter/views/detail.dart';
-import '../views/detail.dart';
+
 import '../routers//application.dart';
-import '../api/api.dart';
 import '../service/request_config.dart';
+import '../views/detail.dart';
 
 class List extends StatefulWidget {
   @override
@@ -11,6 +14,8 @@ class List extends StatefulWidget {
 }
 
 class ListState extends State<List> {
+  var userList = [];
+
   @override
   initState() {
     super.initState();
@@ -18,55 +23,71 @@ class ListState extends State<List> {
   }
 
   init() async {
-    var reponse = await DioUtil.get(Api.getGithubUser);
-    print(reponse);
+    var res = await getJson();
+    setState(() {
+      userList = json.decode(res);
+    });
+  }
+
+  Future<String> getJson() {
+    return rootBundle.loadString('mock/homeList.json');
   }
 
   Widget build(BuildContext context) {
     return new ListView.builder(
-      itemCount: 10,
+      itemCount: userList.length,
       itemBuilder: (BuildContext context, int index) {
         return new Card(
           /* 容器，对子组件位置大小进行约束 */
           child: new Container(
             /* 设置边距 */
-            padding: new EdgeInsets.all(10.0),
+            padding: new EdgeInsets.only(top: 10.0, bottom: 10),
             child: new ListTile(
               subtitle: new Container(
-                /** 纵向布局 */
-                child: new Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    /** 横向布局 */
-                    new Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        new Text("标题",
-                            style: new TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 16.0))
-                      ],
-                    ),
-                    new Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        new Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [new Text("时间："), new Text("2020-09-24")],
-                        )
-                      ],
-                    ),
-                    new Row(
+                  /** 纵向布局 */
+                  child: new Row(
+                children: [
+                  new Image.network(userList[index]["imageUrl"],
+                      width: 100.0, height: 100.0, fit: BoxFit.fitHeight),
+                  new Container(
+                    padding: EdgeInsets.only(left: 20),
+                    child: new Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        new Container(
-                          padding: const EdgeInsets.fromLTRB(0, 8, 0, 2),
-                          child: new Text("内容"),
+                        /** 横向布局 */
+                        new Row(
+                          children: [
+                            new Text(userList[index]["promotion_name"],
+                                style: new TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16.0))
+                          ],
+                        ),
+                        new Row(
+                          children: [
+                            new Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                new Text("时间："),
+                                new Text("2020-09-24")
+                              ],
+                            )
+                          ],
+                        ),
+                        new Row(
+                          children: <Widget>[
+                            new Container(
+                              padding: const EdgeInsets.fromLTRB(0, 8, 0, 2),
+                              child: new Text(userList[index]['promotion_id']),
+                            )
+                          ],
                         )
                       ],
-                    )
-                  ],
-                ),
-              ),
+                    ),
+                  )
+                ],
+              )),
               /** 系统ICON */
               trailing: new Icon(
                 Icons.keyboard_arrow_right,

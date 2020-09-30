@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../service/request_config.dart';
+import '../api/api.dart';
 
 class RequestTest extends StatefulWidget {
   @override
@@ -36,8 +37,7 @@ class _RequestTestState extends State<RequestTest> {
 
   // 网络请求获取省份简称
   void _getProvince() async {
-    var response = await DioUtil.post(
-        "/clue-center-platform/api/externalClue/getCarIdPrefix");
+    var response = await DioUtil.post(Api.getProvincePrefix);
     var list = response.data['data']['info'];
     print(response.data['data']['info']);
     for (var item in list) {

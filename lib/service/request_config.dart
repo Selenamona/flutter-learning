@@ -21,11 +21,13 @@ class DioUtil {
     try {
       Response response;
       dio.options.headers = httpHeaders;
-      print(serviceUrl + url);
+      print(url);
+      if (url.contains("platform")) serviceUrl = Api.phenixBaseUrl;
+      final requesturl = serviceUrl + url;
       if (formData == null) {
-        response = await dio.post(serviceUrl + url);
+        response = await dio.post(requesturl);
       } else {
-        response = await dio.post(serviceUrl + url, data: formData);
+        response = await dio.post(requesturl, data: formData);
       }
       if (response.statusCode == 200) {
         return response;
