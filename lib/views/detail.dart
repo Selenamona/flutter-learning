@@ -23,6 +23,12 @@ class Detail extends StatelessWidget {
               },
             ),
             RaisedButton(
+              child: Text("路由测试"),
+              onPressed: () {
+                Application.router.navigateTo(context, '/routeTest');
+              },
+            ),
+            RaisedButton(
               child: Text("返回"),
               onPressed: () {
                 // 路由跳转方式一：flutter 自带的 Navigator widget 提供的 pop 方法
