@@ -5,7 +5,7 @@ import 'package:fluro/fluro.dart';
 import 'package:new_flutter/views/detail.dart';
 import 'package:new_flutter/views/clue.dart';
 import 'package:new_flutter/views/requestTest.dart';
-import 'package:new_flutter/views/routeTest.dart';
+import 'package:new_flutter/views/routeTest/routeTest.dart';
 
 Handler detailHandler = Handler(
   handlerFunc: (BuildContext context, Map<String, List<String>> params) {

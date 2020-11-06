@@ -9,13 +9,18 @@ class _RouteTestState extends State<RouteTest> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: new AppBar(title: new Text("路由测试")),
       body: Container(
           child: Column(
         children: [
           // 漂浮"按钮，它默认带有阴影和灰色背景。按下后，阴影会变大
           RaisedButton(
             child: Text("基本使用"),
-            onPressed: () {},
+            onPressed: () {
+              // Navigator.of(
+              //   context,
+              // );
+            },
           ),
           // 带图标的按钮
           RaisedButton.icon(
