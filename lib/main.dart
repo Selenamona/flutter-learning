@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import './views/homeList.dart';
+// import './views/home/homeList.dart';
+import './views/home/home.dart';
 import './views/second.dart';
 import './views/third.dart';
 import './views/detail.dart';
@@ -58,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage>
     /** 脚手架 */
     return new Scaffold(
       body: new TabBarView(controller: controller, children: <Widget>[
-        new HomeList(),
+        new HomePage(),
         new Second(),
         new Clue(),
         new Third()

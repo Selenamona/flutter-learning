@@ -7,6 +7,13 @@ import 'package:new_flutter/views/clue.dart';
 import 'package:new_flutter/views/requestTest.dart';
 import 'package:new_flutter/views/routeTest/routeTest.dart';
 
+Handler homePageHandler = Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    String id = params['id'].first; // 通过 params 获取到路由中传递的参数
+    return Detail(id);
+  },
+);
+
 Handler detailHandler = Handler(
   handlerFunc: (BuildContext context, Map<String, List<String>> params) {
     String id = params['id'].first; // 通过 params 获取到路由中传递的参数
