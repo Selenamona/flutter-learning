@@ -62,18 +62,18 @@ class _HomeGridState extends State<HomeGrid> {
 
   // 品牌：大众、奔驰...
   Widget carBrands() {
-    List<Widget> brands = [];
-    for (var i = 0; i < brandsList.length; i++) {
-      brands.add(Row(
-        children: [
-          Image.network(
-            'http:' + brandsList[i]['icon'],
-            width: 18,
-          ),
-          Text(brandsList[i]['name'])
-        ],
-      ));
-    }
+    // List<Widget> brands = [];
+    // for (var i = 0; i < brandsList.length; i++) {
+    //   brands.add(Row(
+    //     children: [
+    //       Image.network(
+    //         'http:' + brandsList[i]['icon'],
+    //         width: 18,
+    //       ),
+    //       Text(brandsList[i]['name'])
+    //     ],
+    //   ));
+    // }
 
     // return GridView(
     //   padding: EdgeInsets.zero,
@@ -85,15 +85,25 @@ class _HomeGridState extends State<HomeGrid> {
     return new SliverGrid(
       gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 4, //Grid按两列显示
-        mainAxisSpacing: 0,
-        crossAxisSpacing: 0,
+        mainAxisSpacing: 15, // 主轴方向的间距
+        crossAxisSpacing: 15, // 横轴方向子元素的间距
         childAspectRatio: 3,
       ),
       delegate: new SliverChildBuilderDelegate(
         (BuildContext context, int index) {
           return new Container(
-            alignment: Alignment.center,
-            child: new Text(brandsList[index]['name']),
+            alignment: Alignment.topLeft,
+            child: Row(
+              children: [
+                Image.network(
+                  'http:' + brandsList[index]['icon'],
+                  width: 18,
+                ),
+                Padding(
+                    padding: EdgeInsets.only(left: 5),
+                    child: new Text(brandsList[index]['name']))
+              ],
+            ),
           );
         },
         childCount: brandsList.length,
@@ -109,12 +119,14 @@ class _HomeGridState extends State<HomeGrid> {
           padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
           child: gridBuild(),
         ),
+        // Container(
+        //   height: 200,
+        //   child: carBrands(),
+        // )
         Container(
           height: 200,
           child: CustomScrollView(slivers: <Widget>[carBrands()]),
         )
-
-        //
       ],
     );
   }
