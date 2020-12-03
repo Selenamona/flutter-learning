@@ -21,8 +21,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Welcome to Flutter',
-      home: new MyHomePage(),
+      title: 'Welcome to Flutter', // 在任务管理窗口中所显示的应用名字
+      home: new MyHomePage(), // 默认显示的界面
       // 路由配置方式一
       // routes: <String, WidgetBuilder>{
       //   '/detail': (BuildContext context) => new Detail("1"),
@@ -31,6 +31,8 @@ class MyApp extends StatelessWidget {
       // },
       // 路由配置方式二
       onGenerateRoute: Application.router.generator, // 将路由配置到 MaterialApp 中
+      navigatorObservers: [], // 应用 Navigator 的监听器
+      // debugShowMaterialGrid: true // 用来调试 UI 的工具
     );
   }
 }
