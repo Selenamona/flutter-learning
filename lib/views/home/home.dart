@@ -14,8 +14,7 @@ class _HomePageState extends State<HomePage> {
       body: Container(
         margin: EdgeInsets.all(15),
         child: Column(
-          children: [HomeSwiper()],
-          // children: [HomeSwiper(), HomeGrid()],
+          children: [HomeSwiper(), HomeGrid()],
         ),
       ),
     );

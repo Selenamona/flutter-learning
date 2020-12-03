@@ -64,57 +64,37 @@ class _HomeGridState extends State<HomeGrid> {
   // 品牌：大众、奔驰...
   Widget carBrands() {
     List<Widget> brands = [];
+    for (var i = 0; i < brandsList.length; i++) {
+      brands.add(Row(
+        children: [
+          Image.network(
+            'http:' + brandsList[i]['icon'],
+            width: 18,
+          ),
+          Text(brandsList[i]['name'])
+        ],
+      ));
+    }
 
     return GridView(
+      padding: EdgeInsets.zero,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        //水平子Widget之间间距
-        crossAxisSpacing: 10.0,
-        //垂直子Widget之间间距
-        mainAxisSpacing: 30.0,
-        //一行的Widget数量
-        crossAxisCount: 3,
-        //子Widget宽高比例
-        childAspectRatio: 1.5,
-        //子Widget列表
-      ),
-      children: List.generate(100, (index) {
+          crossAxisCount: 4, childAspectRatio: 2.0 //宽高比为2
+          ),
+      // children: brands,
+      children: List.generate(brandsList.length, (index) {
         return Container(
-          color: Color.fromARGB(255, Random().nextInt(256),
-              Random().nextInt(256), Random().nextInt(256)),
-        );
+            child: Row(
+          children: [
+            Image.network(
+              'http:' + brandsList[index]['icon'],
+              width: 18,
+            ),
+            Text(brandsList[index]['name'])
+          ],
+        ));
       }),
     );
-    // for (var i = 0; i < brandsList.length; i++) {
-    //   brands.add(Row(
-    //     children: [
-    //       Image.network(
-    //         'http:' + brandsList[i]['icon'],
-    //         width: 18,
-    //       ),
-    //       Text(brandsList[i]['name'])
-    //     ],
-    //   ));
-    // }
-
-    // return GridView(
-    //   padding: EdgeInsets.zero,
-    //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-    //       crossAxisCount: 4, childAspectRatio: 2.0 //宽高比为2
-    //       ),
-    //   // children: brands,
-    //   children: List.generate(brandsList.length, (index) {
-    //     return Container(
-    //         child: Row(
-    //       children: [
-    //         Image.network(
-    //           'http:' + brandsList[index]['icon'],
-    //           width: 18,
-    //         ),
-    //         Text(brandsList[index]['name'])
-    //       ],
-    //     ));
-    //   }),
-    // );
     // return new SliverGrid(
     //   gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
     //     crossAxisCount: 4, //Grid按两列显示
@@ -152,15 +132,14 @@ class _HomeGridState extends State<HomeGrid> {
           padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
           child: gridBuild(),
         ),
-        // Container(
-        //   height: 200,
-        //   child: carBrands(),
-        // )
+        Container(
+          height: 200,
+          child: carBrands(),
+        )
         // Container(
         //   height: 200,
         //   child: CustomScrollView(slivers: <Widget>[carBrands()]),
         // )
-        Expanded(child: Container(child: carBrands())),
       ],
     );
   }
