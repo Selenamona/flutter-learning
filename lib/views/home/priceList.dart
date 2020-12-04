@@ -41,9 +41,9 @@ class _PriceListState extends State<PriceList> {
     return SliverGrid(
         gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 4, // 列数
-          mainAxisSpacing: 10.0,
-          crossAxisSpacing: 10.0,
-          childAspectRatio: 4.0,
+          mainAxisSpacing: 1.0,
+          crossAxisSpacing: 44.0,
+          childAspectRatio: 4,
         ),
         delegate: new SliverChildBuilderDelegate(
           (BuildContext context, int index) {

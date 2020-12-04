@@ -34,9 +34,9 @@ class _BrandListState extends State<BrandList> {
     return SliverGrid(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 4,
-            mainAxisSpacing: 10.0,
-            crossAxisSpacing: 10.0,
-            childAspectRatio: 4),
+            mainAxisSpacing: 1.0,
+            crossAxisSpacing: 50,
+            childAspectRatio: 1.4),
         delegate:
             new SliverChildBuilderDelegate((BuildContext context, int index) {
           return Container(
@@ -46,7 +46,9 @@ class _BrandListState extends State<BrandList> {
                 'http:' + brandsList[index]['icon'],
                 width: 18,
               ),
-              Text(brandsList[index]['name'])
+              Padding(
+                  padding: EdgeInsets.only(left: 5),
+                  child: Text(brandsList[index]['name']))
             ],
           ));
         }, childCount: brandsList.length));
