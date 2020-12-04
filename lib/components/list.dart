@@ -30,7 +30,7 @@ class ListState extends State<List> {
   }
 
   Future<String> getJson() {
-    return rootBundle.loadString('mock/homeList.json');
+    return rootBundle.loadString('mock/home/iconList.json');
   }
 
   Widget build(BuildContext context) {
