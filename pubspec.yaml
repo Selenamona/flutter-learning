@@ -55,6 +55,7 @@ flutter:
   assets:
     - images/
     - mock/
+    - mock/home/
     - assets/
 
   #   - images/a_dot_ham.jpeg
