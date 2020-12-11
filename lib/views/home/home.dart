@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch, // 设置子控件的宽度
           children: [
             Container(
-              padding: EdgeInsets.fromLTRB(15, 5, 15, 15),
+              padding: EdgeInsets.fromLTRB(15, 5, 15, 30),
               height: 56,
               child: RaisedButton(
                 color: Colors.red[600],
@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                   flex: 1,
                   child: Container(
                     height: 110,
-                    margin: EdgeInsets.only(right: 5),
+                    margin: EdgeInsets.fromLTRB(15, 5, 5, 30),
                     child: Column(
                       children: [
                         Text(
@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                     flex: 1,
                     child: Container(
                       height: 110,
-                      margin: EdgeInsets.only(left: 5),
+                      margin: EdgeInsets.fromLTRB(5, 5, 15, 30),
                       child: Column(
                         children: [
                           Text(
