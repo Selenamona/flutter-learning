@@ -14,33 +14,37 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(slivers: [
+      /** 轮播图 */
       SliverPadding(padding: EdgeInsets.all(15), sliver: HomeSwiper()),
+
+      /** icon */
       SliverPadding(padding: EdgeInsets.all(15), sliver: IconGrid()),
+
+      /** 品牌 */
       SliverPadding(padding: EdgeInsets.all(15), sliver: BrandList()),
+
+      /** 价钱分类 */
       SliverPadding(
           padding: EdgeInsets.fromLTRB(15, 0, 15, 15), sliver: PriceList()),
-      SliverPadding(
-          padding: EdgeInsets.all(15),
-          sliver: SliverGrid(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 1, // 列数
-                mainAxisSpacing: 0, // 主轴间距
-                crossAxisSpacing: 0, // 次轴间距
-                childAspectRatio: 8, // 子元素的宽高比例
-              ),
-              delegate:
-                  SliverChildBuilderDelegate((BuildContext context, int index) {
-                return FlatButton(
-                  color: Colors.red[600],
-                  highlightColor: Colors.red[200],
-                  colorBrightness: Brightness.dark,
-                  splashColor: Colors.grey,
-                  child: Text("查看北京全部3283辆 >", style: TextStyle(fontSize: 16)),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(40.0)),
-                  onPressed: () {},
-                );
-              }, childCount: 1))),
+
+      /** 红按钮 */
+      SliverToBoxAdapter(
+          child: Container(
+        padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
+        height: 56,
+        child: RaisedButton(
+          color: Colors.red[600],
+          highlightColor: Colors.red[200],
+          colorBrightness: Brightness.dark,
+          splashColor: Colors.grey,
+          child: Text("查看北京全部3283辆 >", style: TextStyle(fontSize: 16)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(40.0)),
+          onPressed: () {},
+        ),
+      )),
+
+      /** 长列表 */
       SliverPadding(padding: EdgeInsets.all(15), sliver: LongList()),
     ]);
   }
