@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch, // 设置子控件的宽度
           children: [
             Container(
-              padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
+              padding: EdgeInsets.fromLTRB(15, 5, 15, 15),
               height: 56,
               child: RaisedButton(
                 color: Colors.red[600],
@@ -48,7 +48,56 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {},
               ),
             ),
-            // ImgBlock()
+            Flex(
+              direction: Axis.horizontal,
+              children: <Widget>[
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    height: 110,
+                    margin: EdgeInsets.only(right: 5),
+                    child: Column(
+                      children: [
+                        Text(
+                          "越野SUV",
+                          style: TextStyle(fontSize: 18, color: Colors.black),
+                        ),
+                        Text("高底盘 大空间",
+                            style: TextStyle(
+                                fontSize: 12, color: Colors.grey[600]))
+                      ],
+                    ),
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            // image: AssetImage('assets/blockBg/bg1.png'),
+                            image: AssetImage('images/blockBg/bg1.png'),
+                            fit: BoxFit.cover)),
+                  ),
+                ),
+                Expanded(
+                    flex: 1,
+                    child: Container(
+                      height: 110,
+                      margin: EdgeInsets.only(left: 5),
+                      child: Column(
+                        children: [
+                          Text(
+                            "准新车",
+                            style: TextStyle(fontSize: 18, color: Colors.black),
+                          ),
+                          Text("质优价低",
+                              style: TextStyle(
+                                  fontSize: 12, color: Colors.grey[600]))
+                        ],
+                      ),
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('images/blockBg/bg2.png'),
+                              fit: BoxFit.cover)),
+                    )),
+              ],
+            ),
+            ImgBlock()
           ],
         ),
       ),
