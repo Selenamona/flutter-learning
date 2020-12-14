@@ -235,7 +235,7 @@ class _HomePageState extends State<HomePage> {
                   "淘车二手车",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 )),
-            ImgBlock(),
+            ImgBlock(), // 横向滚动
             Container(
                 padding: EdgeInsets.only(left: 15),
                 child: Text(
