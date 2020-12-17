@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import '../routers//application.dart';
+import '../../routers//application.dart';
 
 class Detail extends StatelessWidget {
   // 配置接收的参数

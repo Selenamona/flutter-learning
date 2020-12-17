@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-// import './views/home/homeList.dart';
+import './views/myDemo/demo.dart';
 import './views/home/home.dart';
-import './views/second.dart';
-import './views/third.dart';
-import './views/detail.dart';
-import './views/clue.dart';
+import './views/personal/personalCenter.dart';
+import './views/myDemo/homeList.dart';
+import './views/myDemo/second.dart';
 
 import 'package:fluro/fluro.dart';
 import './routers/routers.dart';
@@ -44,15 +43,17 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
-  TabController controller;
-  @override
-  void initState() {
-    controller = new TabController(length: 4, vsync: this);
-  }
+  int currentIndex = 0;
+  Map<int, Widget> pageMap = {
+    0: HomePage(),
+    1: PersonalCenter(),
+    2: MyDemo(),
+    3: HomeList(),
+    4: Second()
+  };
 
   @override
   void dispose() {
-    controller.dispose();
     super.dispose();
   }
 
@@ -60,34 +61,49 @@ class _MyHomePageState extends State<MyHomePage>
   Widget build(BuildContext context) {
     /** 脚手架 */
     return new Scaffold(
-      body: new TabBarView(controller: controller, children: <Widget>[
-        new HomePage(),
-        new Second(),
-        new Clue(),
-        new Third()
-      ]),
-      /** 底部导航栏 */
-      bottomNavigationBar: new Material(
-        color: Colors.orangeAccent,
-        child: new TabBar(controller: controller, tabs: <Tab>[
-          new Tab(
-            text: "列表",
-            icon: new Icon(Icons.home),
-          ),
-          new Tab(
-            text: "通知",
-            icon: new Icon(Icons.message),
-          ),
-          new Tab(
-            text: "线索",
-            icon: new Icon(Icons.message),
-          ),
-          new Tab(
-            text: "我的",
-            icon: new Icon(Icons.cloud),
-          ),
-        ]),
-      ),
-    );
+        body: pageMap[this.currentIndex],
+        /** 底部导航栏 */
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.white,
+          selectedItemColor: Colors.red,
+          unselectedItemColor: Colors.grey,
+          showUnselectedLabels: true,
+          onTap: (event) {
+            this.setState(() {
+              this.currentIndex = event;
+            });
+          },
+          currentIndex: currentIndex,
+          type: BottomNavigationBarType.fixed,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              title: Text('首页'),
+              activeIcon: Icon(Icons.home),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.apps),
+              title: Text('分类'),
+              activeIcon: Icon(Icons.view_quilt),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.near_me),
+              title: Text('发现'),
+              activeIcon: Icon(Icons.navigation),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_cart),
+              title: Text('购物车'),
+              activeIcon: Icon(Icons.shopping_cart),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle),
+              title: Text(
+                '我的',
+              ),
+              activeIcon: Icon(Icons.face),
+            ),
+          ],
+        ));
   }
 }

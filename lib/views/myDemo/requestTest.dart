@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import '../service/request_config.dart';
-import '../api/api.dart';
+import '../../service/request_config.dart';
+import '../../api/api.dart';
 
 class RequestTest extends StatefulWidget {
   @override
@@ -62,5 +62,3 @@ class _RequestTestState extends State<RequestTest> {
     }
   }
 }
-
-class JSON {}

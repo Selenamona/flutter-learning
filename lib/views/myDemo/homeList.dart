@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../components/list.dart';
+import './list.dart';
 
 class HomeList extends StatefulWidget {
   @override

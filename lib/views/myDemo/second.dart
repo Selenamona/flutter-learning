@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../components/input.dart';
+import './input.dart';
 
 class Second extends StatefulWidget {
   @override
