@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:new_flutter/routers/application.dart';
+import 'package:new_flutter/routers/application.dart';
 
 class MyDemo extends StatefulWidget {
   @override
@@ -12,9 +12,9 @@ class _MyDemoState extends State<MyDemo> {
     return Column(
       children: [
         RaisedButton(
-          child: Text("列表"),
+          child: Text("路由测试"),
           onPressed: () {
-            // Application.router.navigateTo(context, '/routeTest');
+            Application.router.navigateTo(context, '/routeTest');
           },
         ),
       ],

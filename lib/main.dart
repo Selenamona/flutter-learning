@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import './views/myDemo/demo.dart';
+import 'package:new_flutter/views/sellCars/sellCars.dart';
+
 import './views/home/home.dart';
+import './views/buyCars/buyCars.dart';
+import './views/myDemo/demo.dart';
+import './views/sellCars/sellCars.dart';
 import './views/personal/personalCenter.dart';
-import './views/myDemo/homeList.dart';
-import './views/myDemo/second.dart';
 
 import 'package:fluro/fluro.dart';
 import './routers/routers.dart';
@@ -46,10 +48,10 @@ class _MyHomePageState extends State<MyHomePage>
   int currentIndex = 0;
   Map<int, Widget> pageMap = {
     0: HomePage(),
-    1: PersonalCenter(),
+    1: BuyCars(),
     2: MyDemo(),
-    3: HomeList(),
-    4: Second()
+    3: SellCars(),
+    4: PersonalCenter()
   };
 
   @override
