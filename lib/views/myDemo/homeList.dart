@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import './list.dart';
 
+// 列表跳转详情
+
 class HomeList extends StatefulWidget {
   @override
   HomeListState createState() => new HomeListState();

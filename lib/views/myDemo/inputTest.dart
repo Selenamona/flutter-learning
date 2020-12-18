@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import './input.dart';
+import 'input.dart';
 
-class Second extends StatefulWidget {
+class InputTest extends StatefulWidget {
   @override
-  SecondState createState() => new SecondState();
+  InputTestState createState() => new InputTestState();
 }
 
-class SecondState extends State<Second> {
+class InputTestState extends State<InputTest> {
   TextEditingController controller;
   String active = 'test';
   @override

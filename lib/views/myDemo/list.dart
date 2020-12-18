@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
-// import 'package:new_flutter/views/myDemo/detail.dart';
+import 'package:new_flutter/views/myDemo/detail.dart';
 
-import '../../routers/application.dart';
+import '../../routers//application.dart';
 import '../../service/request_config.dart';
 
 class List extends StatefulWidget {

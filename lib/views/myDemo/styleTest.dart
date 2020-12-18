@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class Third extends StatefulWidget {
+class StyleTest extends StatefulWidget {
   @override
-  ThirdState createState() => new ThirdState();
+  StyleTestState createState() => new StyleTestState();
 }
 
-class ThirdState extends State<Third> {
+class StyleTestState extends State<StyleTest> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(

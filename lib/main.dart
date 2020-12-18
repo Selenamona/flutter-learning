@@ -85,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage>
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.apps),
-              title: Text('分类'),
+              title: Text('买车'),
               activeIcon: Icon(Icons.view_quilt),
             ),
             BottomNavigationBarItem(
@@ -95,14 +95,12 @@ class _MyHomePageState extends State<MyHomePage>
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.shopping_cart),
-              title: Text('购物车'),
+              title: Text('卖车'),
               activeIcon: Icon(Icons.shopping_cart),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.account_circle),
-              title: Text(
-                '我的',
-              ),
+              title: Text('我的'),
               activeIcon: Icon(Icons.face),
             ),
           ],
