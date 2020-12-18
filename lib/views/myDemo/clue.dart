@@ -33,71 +33,74 @@ class _ClueState extends State<Clue> {
     //     // )
     //   ]));
     // }
-    return Container(
-        decoration: new BoxDecoration(
-          image: new DecorationImage(
-            image: new AssetImage("images/bg1.png"),
-            fit: BoxFit.cover,
-          ),
-        ),
+    return Material(
         child: Container(
-          child: new Column(
-            children: <Widget>[
-              /** Expanded 最大限度填充父控件 */
-              // new Expanded(
-              //     child: new TextField(
-              //   controller: _controller,
-              //   decoration: new InputDecoration(
-              //       labelText: "用户名",
-              //       hintText: '请输入',
-              //       icon: Icon(Icons.person)),
-              // )),
-              new TextField(
-                controller: _controller,
-                decoration: new InputDecoration(
-                    labelText: "姓名", hintText: '请输入', icon: Icon(Icons.person)),
+            decoration: new BoxDecoration(
+              image: new DecorationImage(
+                image: new AssetImage("images/bg1.png"),
+                fit: BoxFit.cover,
               ),
-              new TextField(
-                controller: _controller,
-                decoration: new InputDecoration(
-                    labelText: "手机号",
-                    hintText: '请输入',
-                    icon: Icon(Icons.cached)),
+            ),
+            child: Container(
+              child: new Column(
+                children: <Widget>[
+                  /** Expanded 最大限度填充父控件 */
+                  // new Expanded(
+                  //     child: new TextField(
+                  //   controller: _controller,
+                  //   decoration: new InputDecoration(
+                  //       labelText: "用户名",
+                  //       hintText: '请输入',
+                  //       icon: Icon(Icons.person)),
+                  // )),
+                  new TextField(
+                    controller: _controller,
+                    decoration: new InputDecoration(
+                        labelText: "姓名",
+                        hintText: '请输入',
+                        icon: Icon(Icons.person)),
+                  ),
+                  new TextField(
+                    controller: _controller,
+                    decoration: new InputDecoration(
+                        labelText: "手机号",
+                        hintText: '请输入',
+                        icon: Icon(Icons.cached)),
+                  ),
+                  new TextField(
+                    controller: _controller,
+                    decoration: new InputDecoration(
+                        labelText: "昵称",
+                        hintText: '请输入',
+                        icon: Icon(Icons.palette)),
+                  )
+                ],
               ),
-              new TextField(
-                controller: _controller,
-                decoration: new InputDecoration(
-                    labelText: "昵称",
-                    hintText: '请输入',
-                    icon: Icon(Icons.palette)),
-              )
-            ],
-          ),
-          margin: EdgeInsets.all(30), padding: EdgeInsets.all(20),
-          /** decoration 和 color 不能同时使用 */
-          // color: Colors.white,
-          decoration: new BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              /** 背景径向渐变 */
-              gradient: RadialGradient(
-                  colors: [Colors.white, Colors.white],
-                  center: Alignment.topLeft,
-                  radius: .98),
-              /** 设置阴影 */
-              boxShadow: [
-                BoxShadow(
-                    color: Color(0xFF8FECFF),
-                    offset: Offset(0, -6), // 阴影xy轴偏移量
-                    blurRadius: 0, // 阴影模糊程度
-                    spreadRadius: -2 // 阴影扩散程度
-                    ),
-                BoxShadow(
-                    color: Color(0xA9FF00B3),
-                    offset: Offset(0, 8), // 阴影xy轴偏移量
-                    blurRadius: 0, // 阴影模糊程度
-                    spreadRadius: -2 // 阴影扩散程度
-                    )
-              ]),
-        ));
+              margin: EdgeInsets.all(30), padding: EdgeInsets.all(20),
+              /** decoration 和 color 不能同时使用 */
+              // color: Colors.white,
+              decoration: new BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  /** 背景径向渐变 */
+                  gradient: RadialGradient(
+                      colors: [Colors.white, Colors.white],
+                      center: Alignment.topLeft,
+                      radius: .98),
+                  /** 设置阴影 */
+                  boxShadow: [
+                    BoxShadow(
+                        color: Color(0xFF8FECFF),
+                        offset: Offset(0, -6), // 阴影xy轴偏移量
+                        blurRadius: 0, // 阴影模糊程度
+                        spreadRadius: -2 // 阴影扩散程度
+                        ),
+                    BoxShadow(
+                        color: Color(0xA9FF00B3),
+                        offset: Offset(0, 8), // 阴影xy轴偏移量
+                        blurRadius: 0, // 阴影模糊程度
+                        spreadRadius: -2 // 阴影扩散程度
+                        )
+                  ]),
+            )));
   }
 }
