@@ -58,6 +58,7 @@ flutter:
     - images/
     - images/blockBg/
     - images/homeGridIcon/
+    - images/personal/
     - mock/
     - mock/home/
     - assets/
